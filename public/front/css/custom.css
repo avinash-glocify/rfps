@@ -1,0 +1,632 @@
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../webfonts/Montserrat-Bold.woff2') format('woff2'), url('../webfonts/Montserrat-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../webfonts/Montserrat-Medium.woff2') format('woff2'), url('../webfonts/Montserrat-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../webfonts/Montserrat-Black.woff2') format('woff2'), url('../webfonts/Montserrat-Black.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../webfonts/Montserrat-Regular.woff2') format('woff2'), url('../webfonts/Montserrat-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../webfonts/Montserrat-SemiBold.woff2') format('woff2'), url('../webfonts/Montserrat-SemiBold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+}
+
+body,
+html {
+	font-family: 'Montserrat';
+	font-weight: normal;
+	font-style: normal;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+a:hover,
+a:focus,
+a:visited,
+a:active {
+	text-decoration: none;
+	outline: none;
+}
+
+
+/* Home Page */
+
+.navbar.navbar-default {
+	padding: 12px;
+	background: #fff;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, .2);
+	border-radius: 0px;
+	margin-bottom: 0;
+	border-bottom: 0px;
+}
+
+.navbar-brand {
+	padding-top: 8px;
+}
+
+.user_details span i {
+	font-size: 31px;
+	color: orange;
+}
+
+.u_details {
+	border-left: 1px solid #e7e7e7;
+}
+
+.user_details>span {
+	display: table-cell;
+	vertical-align: middle;
+	font-weight: 500;
+	color: #4b4b4b;
+	font-size: 14px;
+	padding: 0 10px;
+	line-height: 23px;
+}
+
+.banner_head {
+	min-height: 450px;
+	overflow: hidden;
+	position: relative;
+}
+
+.banner_image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	z-index: -1;
+}
+
+.banner_text {
+	max-width: 610px;
+	margin-top: 80px;
+}
+
+.banner_text h1 {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 42px;
+	line-height: 50px;
+	color: #484848;
+}
+
+.banner_text p {
+	font-weight: 500;
+	font-size: 17px;
+	line-height: 28px;
+	color: #4c4c4c;
+}
+
+.banner_text a {
+	font-size: 19px;
+	padding: 15px 25px;
+	background: #ec8312;
+	border-radius: 4px;
+	color: #fff;
+	box-shadow: 1px 2px 3px rgba(0, 0, 0, .4);
+}
+
+.view_more {
+	padding: 30px 0;
+}
+
+.content_holder {
+	padding: 50px 0;
+}
+
+.main_sec {
+	background: #f3f3f3;
+	padding: 40px 30px;
+}
+
+.site_h {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 27px;
+	margin: 5px 0 20px 0;
+	color: #ec8312;
+}
+
+.site_p {
+	font-size: 15px;
+	line-height: 28px;
+	font-weight: 500;
+	color: #4c4c4c;
+}
+
+.infographic img {
+	max-width: 100%;
+	width: 100%;
+}
+
+.infographic figure {
+	border: 1px solid #e6e6e6;
+}
+
+.infographic {
+	margin: 40px 0 0 0;
+}
+
+.side_bar {
+	padding: 0;
+}
+
+.important_links {
+	margin: 30px 0;
+}
+
+.important_links a {
+	font-weight: 500;
+	font-size: 16px;
+	color: #ec8312;
+	padding: 11px 0 11px 30px;
+	display: block;
+	border-bottom: 1px solid #eee;
+}
+
+.important_links li {
+	position: relative;
+	transition-duration: .25s;
+}
+
+.important_links li:hover:before {
+	left: 5px;
+}
+
+.important_links li::before {
+	content: "";
+	transition-duration: .25s;
+	left: -4px;
+	top: 31%;
+	position: absolute;
+	border-top: 8px solid transparent;
+	border-bottom: 7px solid transparent;
+	border-left: 10px solid #ec8312;
+	content: "";
+	bottom: ;
+}
+
+.conrols .f_group {
+	display: table-cell;
+	padding: 5px 7px;
+}
+
+.login_form h1 {
+	font-weight: bold;
+	font-size: 22px;
+	text-transform: uppercase;
+	text-align: center;
+	background: #ec8312;
+	padding: 16px;
+	color: #fff;
+	margin: 0 0 20px 0;
+}
+
+.login_form {
+	border: 1px solid #eee;
+	background: #f3f3f3;
+	margin-top: 50px;
+}
+
+.login_form form {
+	padding: 8px 20px 20px 20px;
+}
+
+.login_form input[type="text"],
+.login_form input[type="password"] {
+	height: 42px;
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 0 20px;
+	margin: 0 0 20px 0;
+}
+
+.login_form input[type="checkbox"] {
+	margin-right: 8px;
+	vertical-align: top;
+}
+
+.login_form input[type="submit"] {
+	padding: 8px 26px;
+	background: #ec8312;
+	border: 1px solid #ec8312;
+	border-radius: 3px;
+	font-size: 16px;
+	color: #fff;
+	font-weight: 500;
+	transition-duration: .25s;
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, .4);
+}
+
+.login_form input[type="submit"]:hover {
+	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0);
+}
+
+.copyr {
+	font-size: 13px;
+	font-weight: 500;
+	color: #fff;
+	text-align: center;
+	margin: 0 auto;
+}
+
+footer {
+	background: #272727;
+	padding: 32px 0;
+}
+
+
+/* innerpage */
+
+.banner_head.inner_banner {
+	max-height: 400px !important;
+	min-height: auto;
+}
+
+.banner_head.inner_banner .banner_text {
+	margin: 0;
+}
+
+.banner_head.inner_banner h1 {
+	padding: 90px 0;
+	font-size: 33px;
+	margin: 0;
+	font-weight: bold;
+}
+
+.banner_head.inner_banner .banner_image {
+	object-position: top;
+}
+
+.sign_holder {
+	background: #f3f3f3;
+	padding: 40px 30px;
+}
+
+.signup_options {
+	margin: 50px 0;
+}
+
+.signup_options p {
+	line-height: 32px;
+	margin-bottom: 20px;
+}
+
+.f_group1 {
+	padding: 20px;
+	background: #fff;
+	border: 1px solid #e3e3e3;
+	border-radius: 4px;
+	margin: 30px 0;
+}
+
+.f_group1>span {
+	padding: 15px 20px;
+	background: #a6a6a5;
+	border-radius: 4px;
+	display: inline-block;
+	color: #fff;
+	min-width: 33%;
+}
+
+.f_group1 label {
+	font-weight: 500;
+	font-size: 14px;
+	padding: 0 19px;
+	cursor: pointer;
+}
+
+.f_group1 input[type="submit"] {
+	padding: 16px 20px;
+	transition-duration: .35s;
+	background: #f48711;
+	color: #fff;
+	border: 1px solid #f48711;
+	width: 100%;
+	border-radius: 4px;
+	font-size: 16px;
+	font-weight: 500;
+	display: block;
+	box-shadow: 1px 2px 3px rgba(0, 0, 0, .5);
+}
+
+.f_group1 input[type="submit"]:hover {
+	box-shadow: 1px 2px 3px rgba(0, 0, 0, .0);
+}
+
+.f_group1>span:last-child {
+	padding: 0;
+	background: none;
+}
+
+.site_p b,
+.site_p a {
+	color: #e68218;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+
+/* sign up  form */
+
+.form_holder_1 {
+	background: #f3f3f3;
+	padding: 40px 30px;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.sign_up_form {
+	margin: 50px 0;
+}
+
+.form_holder_1 h2 {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 19px;
+	color: #ec8312;
+	margin: 0px 0 10px;
+}
+
+.personal_form label {
+	display: block;
+	font-weight: 500;
+	font-size: 15px;
+	margin-top: 20px;
+}
+
+.personal_form,
+.term_cond {
+	background: #fff;
+	padding: 10px 20px 30px 20px;
+	border: 1px solid #e1e1e1;
+	border-radius: 3px;
+}
+
+.personal_form {
+	margin-bottom: 30px;
+}
+
+.personal_form input {
+	height: 45px;
+	width: 100%;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	padding: 0 0 0 20px;
+	font-size: 14px;
+	box-shadow: inset 0px 0px 3px rgba(0, 0, 0, .17);
+}
+
+.personal_form textarea {
+	font-size: 14px;
+	width: 100%;
+	border-radius: 3px;
+	padding: 15px;
+	min-height: 130px;
+	border: 1px solid #ccc;
+	box-shadow: inset 0px 0px 3px rgba(0, 0, 0, .2);
+}
+
+.sign_up_form .row {
+	padding: 0 15px;
+}
+
+.multi_input input {
+	padding: 0;
+	text-align: center;
+	width: 40px;
+	height: 40px;
+}
+
+.multi_input td {
+	padding: 5px;
+}
+
+.multi_input {
+	max-width: 500px;
+}
+
+.term_cond {
+	max-height: 140px;
+	overflow: auto;
+	padding-top: 12px;
+}
+
+.term_cond p {
+	font-size: 12.5px;
+	line-height: 23px;
+	font-weight: 500;
+	color: #555;
+}
+
+.radio_check {
+	background: #fff;
+	padding: 20px 20px;
+	border: 1px solid #e1e1e1;
+	border-radius: 3px;
+	margin: 30px 0;
+}
+
+.radio_check p span {
+	font-size: 15px;
+	font-weight: 500;
+	color: #555;
+	padding: 0 10px;
+}
+
+.main_points span {
+	color: #ec8312 !important;
+	line-height: 29px;
+}
+
+.main_points {
+	padding-top: 10px;
+}
+
+.submit_button {
+	margin: 20px 0;
+}
+
+.submit_button button,
+.submit_button input[type="submit"] {
+	font-size: 15px;
+	background: #f48711;
+	color: #fff;
+	font-weight: 500;
+	padding: 10px;
+	text-align: center;
+	width: 100%;
+	border: 1px solid #f48711;
+	border-radius: 4px;
+	box-shadow: 1px 2px 3px rgba(0, 0, 0, .3)
+}
+
+.submit_button input:hover {
+	background: #ff8400;
+	box-shadow: 0px 0px 0px;
+}
+
+.not_inter {
+	text-align: right;
+}
+
+.not_inter input {
+	border: 0px;
+	background: transparent;
+	color: #ec8312;
+	font-weight: 500;
+}
+
+@media only screen and (min-width:100px) and (max-width:768px) {
+	#navbar {
+		position: absolute;
+		top: 100%;
+		background: white;
+		width: 100%;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		z-index: 9;
+		box-shadow: 0px 4px 3px rgba(0, 0, 0, .2);
+	}
+	.navbar-toggle {
+		padding: 0;
+		border: none;
+		color: orange;
+		font-size: 30px;
+	}
+	.navbar-toggle:hover,
+	.navbar-toggle:focus,
+	.navbar-toggle:active {
+		background: transparent !important;
+	}
+	body {
+		overflow-x: hidden;
+	}
+	.form_holder_1 {
+		padding: 10px 6px;
+		border-radius: 4px;
+	}
+	.multi_input {
+		max-width: 100% !important;
+		width: 100%;
+	}
+	.personal_form {
+		padding: 20px 5px;
+	}
+	.multi_input td {
+		padding: 1px;
+	}
+	.multi_input input {
+		width: 24px;
+	}
+	.form_holder_1 h2 {
+		font-size: 20px;
+	}
+	.personal_form label {
+		margin-top: 13px;
+		font-size: 14px;
+	}
+	.banner_head.inner_banner h1 {
+		padding: 17px 0;
+		font-size: 25px;
+		margin: 0;
+		font-weight: bold;
+		line-height: 37px;
+	}
+	.banner_text {
+		margin-top: 30px;
+	}
+	.banner_text h1 {
+		font-size: 29px;
+		line-height: 40px;
+	}
+	.banner_head {
+		min-height: auto;
+		padding-bottom: 30px;
+	}
+	.col-md-8.main_sec {
+		padding: 10px;
+	}
+	.sign_holder {
+		padding: 15px;
+	}
+	.f_group1>span {
+		padding: 3px;
+		width: 100%;
+		margin: 10px 0;
+		display: inline-block;
+	}
+	.f_group1>span input,
+	.f_group1>span label {
+		width: 100%;
+		vertical-align: ;
+		text-align: center;
+	}
+	.sign_up_form>.container {
+		padding: 0;
+	}
+	.personal_form input {
+		font-size: 13px;
+	}
+	.main_points span {
+		display: table-cell;
+	}
+	.radio_check p span {
+		display: table-cell;
+	}
+	.radio_check 
+	{
+	padding: 20px 10px;
+	}
+}
+

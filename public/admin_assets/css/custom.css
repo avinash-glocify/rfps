@@ -1,0 +1,57 @@
+.qst .block-content.tab-content {
+    padding: 20px 0;
+}
+.qst .form-group strong {
+    background: #eeeeee;
+    padding: 8px 15px;
+    width: 100%;
+    display: block;
+	float: left; margin-top: 15px;
+}
+
+.qst .form-group .col-md-6, .qst .form-group .col-md-4 {
+    margin-bottom: 10px;
+}
+.qst .form-group label {
+    padding: 0 20px;
+    margin-top: 8px;
+}
+.qst .form-group button {
+    margin-top: 20px;
+    float: left;
+    height: 45px;
+}
+
+.workers {
+    margin-top: 20px;
+}
+.table > thead> tr > th {
+    font-size:15px;
+    color: #000;
+    font-weight: 600;
+}
+.tabledata  > tbody> tr > td:first-child {
+    font-size: 11px;
+    color: #000;
+    font-weight: 600;
+}
+.tabledata  > tbody> tr > td:nth-child(3) {
+    font-size: 11px;
+    color: #000;
+    font-weight: 600;
+}
+.breadcrum h3 {
+    color: #000;
+    font-weight: 700;
+    margin:15px 0;
+    text-align: center;
+}
+.breadcrum h4 {
+    background: #eeeeee;
+    padding: 8px 15px;
+    width: 100%;
+    margin-top: 15px;
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+}

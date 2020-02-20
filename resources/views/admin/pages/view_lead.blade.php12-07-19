@@ -1,0 +1,1936 @@
+@extends("admin.admin_applist")
+@section("content")
+
+                <!-- Page Content -->
+                <div class="content content-boxed">
+                    <div class="row qst">
+					<h3>View Prospect</h3>
+                        <div class="col-sm-12 col-lg-12">
+
+                             <!-- Block Tabs Alternative Style -->
+                            <div class="block">
+                                <div class="block-content tab-content">
+ 
+
+                                    <div class="col-lg-12 tab-pane active" id="btabs-alt-static-profile">
+
+                                        
+	<div class="row" >
+		
+			
+			
+			<div class="form-group">
+					<strong>What type of services are you interested in? (Select any one)</strong><br />
+					
+					
+					@if($leadData['service_type'] == 'PEO')
+						{{Form::label('service_type', 'PEO (Professional Employer Organization)')}}<br />
+					@else
+						
+					@endif		
+					
+					@if($leadData['service_type'] == 'HR')
+						{{Form::label('service_type', 'HR Outsourcing')}}<br />
+					@else
+						
+					@endif
+					
+		</div>
+		 <div class="form-group">	
+                  <div class="col-md-6">			
+				{{Form::label('total_employee', ' Number Of Employees')}}	
+				</div>
+				<div class="col-md-6">
+				{{Form::label('total_employee', $leadData['total_employee'])}}	
+				</div>    		 
+					
+		</div>   
+		
+		<div class="form-group">
+				<strong>What is the main reason for your interest in services?</strong><br />
+				
+				@if(in_array(1, $leadData['reason']))	
+				{{Form::label('reason', 'Workers Compensation Coverage')}}<br />
+				@else
+				
+				@endif
+					
+				
+				@if(in_array(2, $leadData['reason']))
+					{{Form::label('reason', ' Payroll/Technology')}}	<br />
+				@else
+					
+				@endif
+				
+				
+				@if(in_array(3, $leadData['reason']))
+					{{Form::label('reason', ' Multi-state')}}	<br />
+				@else
+					
+				@endif			
+				
+				
+				@if(in_array(4, $leadData['reason']))
+					{{Form::label('reason', 'Currently with a Peo and Shopping')}}	<br />
+				@else
+					
+				@endif				
+				
+				
+				@if(in_array(5, $leadData['reason']))
+					{{Form::label('reason', 'HR/Compliance')}}	<br />
+				@else
+					
+				@endif
+				
+				
+				@if(in_array(6, $leadData['reason']))
+					{{Form::label('reason', 'Time and Attendance')}}	<br />	
+				@else
+					
+				@endif
+				
+				
+				@if(in_array(7, $leadData['reason']))
+					{{Form::label('reason', ' Other')}}	<br />
+				@else
+					
+				@endif
+				
+					
+		</div>
+		<div class="form-group">
+					<strong>When do you expect to make a decision?</strong><br />
+					
+					@if($leadData['expected_decision_time'] == 'ASAP')
+						{{Form::label('expected_decision_time', 'ASAP')}}<br />
+					@else
+						
+					@endif
+					
+					
+					@if($leadData['expected_decision_time'] == 'In one month')
+						{{Form::label('expected_decision_time', 'In one month')}}<br />
+					@else
+						
+					@endif
+					
+					
+					@if($leadData['expected_decision_time'] == 'In two months or more')
+						{{Form::label('expected_decision_time', 'In two months or more')}}<br />
+					@else
+						
+					@endif
+					
+		</div>
+		<div class="form-group">
+				<strong>What additional benefits (if any) would you like to provide through the PEO?</strong><br />
+				@if(in_array('Group medical/ dental/ vision insurance', $leadData['additional_benfefits']))
+					{{Form::label('additional_benfefits', 'Group medical/ dental/ vision insurance')}}	<br />
+				@else
+					
+				@endif
+				
+				
+				
+				@if(in_array('Group life insurance', $leadData['additional_benfefits']))
+					{{Form::label('additional_benfefits', 'Group life insurance')}}	<br />
+				@else
+					
+				@endif			
+				
+				@if(in_array('Short and long-term disability', $leadData['additional_benfefits']))
+					{{Form::label('additional_benfefits', 'Short and long-term disability')}}	<br />
+				@else
+					
+				@endif
+				
+				
+				@if(in_array('Flexible Spending Account (FSA) or Health Savings Account (HSA)', $leadData['additional_benfefits']))
+					{{Form::label('additional_benfefits', 'Flexible Spending Account (FSA) or Health Savings Account (HSA)')}}	<br />
+				@else
+					
+				@endif
+				
+				
+				
+				@if(in_array('401(k) programs', $leadData['additional_benfefits']))
+					{{Form::label('additional_benfefits', '401(k) programs')}}	<br />
+				@else
+					
+				@endif
+				
+				
+				@if(in_array('Currently not offering Benefits but interested', $leadData['additional_benfefits']))
+					{{Form::label('additional_benfefits', 'Currently not offering Benefits but interested')}}	<br />	
+				@else
+					
+				@endif
+				
+				
+				@if(in_array('Do not wish to offer Benefits', $leadData['additional_benfefits']))
+					{{Form::label('additional_benfefits', 'Do not wish to offer Benefits')}}	<br />
+				@else
+					
+				@endif
+				
+				
+				
+					
+		</div>
+		
+		<div class="form-group">	
+                 <div class="col-md-6">			
+				{{Form::label('first_name', 'First Name')}}	
+				</div>
+				<div class="col-md-6">
+				{{Form::label('first_name', $leadData['first_name'])}}	
+				</div>			
+				
+		</div>
+		
+		<div class="form-group">
+                 <div class="col-md-6">			
+				{{Form::label('last_name', 'Last Name')}}				
+				</div>
+				<div class="col-md-6">
+				{{Form::label('last_name', $leadData['last_name'])}}		
+				</div>			
+				
+		</div>
+		
+		<div class="form-group">	 
+				<div class="col-md-6">
+						{{Form::label('email', 'Email')}}	
+						</div>
+						<div class="col-md-6">
+						{{Form::label('email', $leadData['email_address'])}}
+			            </div>
+			</div>
+		
+		<div class="form-group">	 
+				<div class="col-md-6">
+						{{Form::label('company_name', 'Company Name')}}	
+						</div>
+						<div class="col-md-6">
+						{{Form::label('phone_number', $leadData['company_name'])}}
+			            </div>	
+		</div>
+		
+		<div class="form-group">	 
+				<div class="col-md-6">
+						{{Form::label('phone_number', 'Contact Number')}}
+						</div>
+						<div class="col-md-6">
+						{{Form::label('phone_number', $leadData['phone_number'])}}
+			            </div>	
+		</div>
+		
+		<div class="form-group">
+				<strong>Preferred method of contact?</strong><br />
+				@if(in_array('Phone', $leadData['preferred_method_contact']))
+					{{Form::label('preferred_method_contact', 'Phone')}}	<br />
+				@else
+					
+				@endif
+				
+				
+				@if(in_array('Email', $leadData['preferred_method_contact']))
+					{{Form::label('preferred_method_contact', 'Email')}}	<br />
+				@else
+					
+				@endif
+				
+				
+					
+		</div>
+		
+		<div class="form-group">				  
+				   <div class="col-md-6">
+					   {{Form::label('job_title', 'Job Title :')}}				
+					   </div>
+					   <div class="col-md-4">
+					   
+					   {{Form::select('job_title',$jobTittle, $leadData['job_title'], ['class' => 'form-control', ' disabled'=>' disabled'])}}
+					   </div>
+		</div>
+		
+		<div class="form-group">
+				  <div class="col-md-6">
+					   {{Form::label('work_indstry', 'Industry you work in:')}}			
+					   </div>
+					   <div class="col-md-4">
+					   {{Form::select('work_indstry',$workIN, $leadData['work_indstry'], ['class' => 'form-control',' disabled'=>' disabled'])}}
+					   </div>
+		</div>
+		
+		<div class="form-group">
+				  <div class="col-md-6">
+					   {{Form::label('country', 'Country')}}				
+					   </div>
+					   <div class="col-md-4">
+					   {{Form::select('country',$country, $leadData['country'], ['class' => 'form-control',' disabled'=>' disabled'])}}
+					   </div>
+		</div>
+		<div class="form-group">
+				    <div class="col-md-6"> 
+					   {{Form::label('state', 'State')}}		
+					   </div>
+					   <div class="col-md-4">
+					    
+                        {{Form::select('state',$state, $leadData['state'], ['class' => 'form-control',' disabled'=>' disabled'])}}						
+					   </div>
+		</div>
+		<div class="form-group">
+				  <div class="col-md-6">
+					   {{Form::label('city', 'City')}}	
+					   </div>
+					   <div class="col-md-4">
+					   	
+					   {{Form::select('city',$city, $leadData['city'], ['class' => 'form-control',' disabled'=>' disabled'])}}
+					   </div>
+		</div>
+		<div class="form-group">
+			
+			
+			<div class="col-md-6"> 
+					   {{Form::label('status', 'Status Time')}}	
+					   </div>
+					   <div class="col-md-4">
+					   {{Form::select('status',$status, $leadData['status'], ['class' => 'form-control','disabled'=>'disabled'])}}	
+					   </div>
+		</div>
+		
+		
+		<!------------- start code here --------------->
+<div class="row">
+        <div class="col-sm-12 col-md-12">     
+                <div class="breadcrum">     
+             <h4>Request for Proposal Information Questionnaire</h4>  
+        </div>              
+    </div>
+<div class="col-md-12"> 
+      <div class="form-group">
+			<div class="col-md-12"> 
+                <label for="business">Attachments:-</label>  
+			</div>
+       <div class="col-md-6">  
+		<?php 
+                $count_attacments= count(explode(",",$alldata_lead->attachments));
+                
+                if($count_attacments>1)
+                {
+		foreach(explode(",",$alldata_lead->attachments) as $attachments)
+		{ ?>
+			 
+			 <a href="{{ asset('attachments/'.$attachments)}}">Download  </a>,
+			 
+	    <?php 	}
+                }
+		?>  
+       </div>
+    </div>
+   </div>
+        <div class="form-group">
+			<div class="col-md-6"> 
+                <label for="business">Legal Business Name and DBA:</label>  
+			</div>
+        <div class="col-md-6"> 
+		{{$alldata_lead->legal_name_dba}}
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="form-group">
+                <div class="col-md-6"> 
+                        <label for="adddress">Street Address: </label>  
+                    </div>
+                    
+                    <div class="col-md-6"> 
+                       {{$alldata_lead->Street_Address}}
+                    </div>
+                </div>
+            </div>
+
+<div class="row">
+    <div class="form-group">
+        <div class="col-md-6"> 
+            <label for="city">City/State/Zip:</label>  
+                </div>
+                        
+        <div class="col-md-6"> 
+            {{$alldata_lead->city_state_zip}}
+                </div>
+                </div>
+           </div>
+
+<div class="row">
+    <div class="form-group">        
+        <div class="col-md-3"> 
+            <label for="phone">Phone:</label>  
+        </div>
+                            
+    <div class="col-md-3"> 
+       {{$alldata_lead->Phone}}
+    </div>
+        <div class="col-md-2"> 
+      <label for="fax"> Fax:</label>  
+    </div>                               
+            <div class="col-md-3"> 
+               {{$alldata_lead->Fax}}
+            </div>
+     </div>
+</div>
+
+
+<div class="row">
+    <div class="form-group"> 
+    <div class="col-md-3"> 
+        <label for="contact">Contact Name: </label>  
+    </div>
+     <div class="col-md-3"> 
+         {{$alldata_lead->Contact_Name}}
+      </div>
+        <div class="col-md-2"> 
+           <label for="title">Title: </label>  
+        </div>
+    <div class="col-md-3"> 
+        {{$alldata_lead->Title}}
+        </div>
+   </div>
+   </div>
+
+   <div class="row">
+        <div class="form-group"> 
+ <div class="col-md-4"> 
+        <label for="business">Industry (description of business): </label>  
+    </div>
+                                            
+  <div class="col-md-2"> 
+        {{$alldata_lead->Industry_desc}}
+    </div>
+  <div class="col-md-3"> 
+     <label for="tax">Fed Tax ID #: </label>  
+  </div>
+   <div class="col-md-2"> 
+        {{$alldata_lead->Fed_Tax_id}}
+    </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    
+    <div class="row">
+        <div class="form-group">                                                  
+    <div class="col-md-4"> 
+            <label for="status">Years in Business:</label>  
+          </div>
+    
+    <div class="col-md-2"> 
+             {{$alldata_lead->Years_inBusiness}}
+        </div>
+            <div class="col-md-3"> 
+               <label for="siccode">SIC Code:</label>  
+                     </div>
+                                                        
+        <div class="col-md-3"> 
+            {{$alldata_lead->SIC_Code}}
+        </div>
+  </div>
+    </div>
+    <div class="clearfix"></div>
+
+
+    <!----------------- Payroll & Workers Compensation Information ------------------------>
+    <div class="row">
+        <div class="col-sm-12 col-md-12">     
+            <div class="breadcrum">     
+             <h4>Payroll & Workers Compensation Information:</h4>  
+        </div>   
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <table class="table table-bordered table-responsive">
+                    <thead>
+                      <tr>
+                        <th>Job Description</th>
+                        <th>Class Code</th>
+                        <th>Rate/$100</th>
+                        <th>Annual Payroll</th>
+                        <th># of
+                                EE’s</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{$alldata_lead->JobDescription1}}</td>
+                        <td>{{$alldata_lead->ClassCode1}}</td>
+                        <td>{{$alldata_lead->Rate100_1}}</td>
+                        <td>{{$alldata_lead->AnnualPayroll1}}</td>
+                        <td>{{$alldata_lead->noofEE1}}</td>
+                       
+                      </tr>
+                      <tr>
+                         <td>{{$alldata_lead->JobDescription2}}</td>
+                        <td>{{$alldata_lead->ClassCode2}}</td>
+                        <td>{{$alldata_lead->Rate100_2}}</td>
+                        <td>{{$alldata_lead->AnnualPayroll2}}</td>
+                        <td>{{$alldata_lead->noofEE2}}</td>
+                            
+                      </tr>
+                      <tr>
+                         <td>{{$alldata_lead->JobDescription3}}</td>
+                        <td>{{$alldata_lead->ClassCode3}}</td>
+                        <td>{{$alldata_lead->Rate100_3}}</td>
+                        <td>{{$alldata_lead->AnnualPayroll3}}</td>
+                        <td>{{$alldata_lead->noofEE3}}</td>
+                          
+                      </tr>
+                      <tr>
+                        <td>{{$alldata_lead->JobDescription4}}</td>
+                        <td>{{$alldata_lead->ClassCode4}}</td>
+                        <td>{{$alldata_lead->Rate100_4}}</td>
+                        <td>{{$alldata_lead->AnnualPayroll4}}</td>
+                        <td>{{$alldata_lead->noofEE4}}</td>
+                            
+                      </tr>
+                      <tr>
+                        <td>{{$alldata_lead->JobDescription5}}</td>
+                        <td>{{$alldata_lead->ClassCode5}}</td>
+                        <td>{{$alldata_lead->Rate100_5}}</td>
+                        <td>{{$alldata_lead->AnnualPayroll5}}</td>
+                        <td>{{$alldata_lead->noofEE5}}</td>
+                           
+                      </tr>
+                      <tr>
+                         <td>{{$alldata_lead->JobDescription6}}</td>
+                        <td>{{$alldata_lead->ClassCode6}}</td>
+                        <td>{{$alldata_lead->Rate100_6}}</td>
+                        <td>{{$alldata_lead->AnnualPayroll6}}</td>
+                        <td>{{$alldata_lead->noofEE6}}</td>
+                           
+                      </tr>
+                      <tr>
+                         <td>{{$alldata_lead->JobDescription7}}</td>
+                        <td>{{$alldata_lead->ClassCode7}}</td>
+                        <td>{{$alldata_lead->Rate100_7}}</td>
+                        <td>{{$alldata_lead->AnnualPayroll7}}</td>
+                        <td>{{$alldata_lead->noofEE7}}</td>
+                           
+                      </tr>
+                      
+                      <tr>
+                            <td></td>
+                            <td></td>
+                            <td>Total</td>
+                            <td>000000</td>
+                            <td>0000</td>
+                           
+                      </tr>
+                    </tbody>
+                  </table>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<!------------------->
+    <div class="row">
+            <div class="form-group"> 
+                <div class="col-md-4"> 
+            <label for="contact">Payroll Frequency:  </label>  
+      </div>
+	  <div class="col-sm-3 col-md-3">
+        {{$alldata_lead->PayrollFrequency}}
+    </div>
+    </div>
+    </div>
+
+    <div class="row">
+            <div class="form-group"> 
+                    <div class="col-md-4"> 
+                    <label for="contact">Current Cost of Payroll:  </label>  
+      </div>
+    <div class="col-sm-3 col-md-3">
+        {{$alldata_lead->CurrentCostPayroll}}
+    </div>
+<div class="col-sm-5 col-md-5">
+(payroll service, internal costs, etc…)
+</div>
+    </div>
+    </div>
+
+
+    <div class="row">
+            <div class="form-group"> 
+                <div class="col-md-4"> 
+            <label for="contact">Current Cost of HR:  </label>  
+      </div>
+      <div class="col-sm-3 col-md-3">
+            {{$alldata_lead->CurrentofHR}}
+        </div>
+    <div class="col-sm-5 col-md-5">
+            (PEO, HR consulting, internal costs, etc…)
+    </div>
+    </div>
+    </div>
+
+    <div class="row">
+            <div class="form-group"> 
+                <div class="col-md-5"> 
+            <label for="contact">Current State Unemployment Rate:  </label>  
+      </div>
+      <div class="col-sm-3 col-md-3">
+            {{$alldata_lead->CurrentStateUnemployment}}
+        </div>
+    </div>
+    </div>
+
+    <div class="row">
+            <div class="form-group"> 
+                <div class="col-md-5"> 
+            <label for="contact">Workers Compensation Modifier:  </label>  
+      </div>
+      <div class="col-sm-3 col-md-3">
+            {{$alldata_lead->WorkersCompensationModifier}}
+        </div>
+    </div>
+    </div>
+
+    <div class="row">
+            <div class="form-group"> 
+                <div class="col-md-5"> 
+            <label for="contact">Desired Start Date  </label>  
+      </div>
+      <div class="col-sm-3 col-md-3">
+            {{$alldata_lead->DesiredStartDate}}
+        </div>
+    </div>
+    </div>
+
+    <!---------- General Benefit Information: ------------>
+    <div class="row">
+            <div class="col-sm-12 col-md-12">
+               <div class="form-group">
+                 <strong>General Benefit Information:</strong><br />      
+                 </div>
+               </div>
+    </div>
+
+    <div class="row">
+            <div class="form-group"> 
+                <div class="col-md-7"> 
+            <label for="contact">Does Employer Currently have Benefits?  </label>  
+      </div>
+      <div class="col-sm-3 col-md-3">
+          {{$alldata_lead->EmployerCurrentlyBenefits}} 
+        </div>
+        <div class="col-sm-2 col-md-2">
+           
+            </div>
+    </div>
+    </div>
+
+    <div class="row">
+            <div class="form-group"> 
+                <div class="col-md-7"> 
+            <label for="contact">Does Employer Wish to Offer NetPEO HR Benefits?   </label>  
+      </div>
+      <div class="col-sm-3 col-md-3">
+          {{$alldata_lead->NetPEOHRBenefits}} 
+        </div>
+        <div class="col-sm-2 col-md-2">
+           
+            </div>
+    </div>
+    </div>
+
+    <div class="row">
+            <div class="form-group"> 
+                <div class="col-md-7"> 
+            <label for="contact">Does Employer Currently have a 401(k)?  </label>  
+      </div>
+      <div class="col-sm-3 col-md-3">
+           {{$alldata_lead->EmployerCurrently401}}
+        </div>
+        <div class="col-sm-2 col-md-2">
+           
+            </div>
+    </div>
+    </div>
+
+    <div class="row">
+            <div class="form-group"> 
+                <div class="col-md-7"> 
+            <label for="contact">Does Employer Wish to Offer NetPEO HR 401(k)?  </label>  
+      </div>
+      <div class="col-sm-3 col-md-3">
+          {{$alldata_lead->NetPEOHR401}} 
+        </div>
+        <div class="col-sm-2 col-md-2">
+           
+            </div>
+    </div>
+    </div>
+
+
+<!--------------------  end  --------------->
+
+
+<!-------------------- WORKERS COMPENSATION APPLICATION  ------------------------------>
+<div class="workers">
+<div class="row">
+        <div class="col-sm-12 col-md-12">     
+                <div class="breadcrum">     
+             <h4>WORKERS COMPENSATION APPLICATION</h4>  
+             </div>              
+    </div>
+</div>
+
+    <div class="row">
+            <div class="col-sm-6 col-md-6">
+                <table class="table table-bordered table-responsive">
+                    <thead>
+                        <th colspan="4">AGENCY NAME AND ADDRESS </th>
+                    </thead>
+                    <tbody>
+                            <tr>
+                            <td colspan="4">{{$alldata_lead->acc_agency_and_address}} </td>
+                      </tr>
+                          <tr>
+                            <td>PRODUCER NAME:</td>
+                            <td colspan="3">{{$alldata_lead->acc_producer_name}} </td>
+                           
+                          </tr>
+
+                          <tr>
+                            <td>CS REPRESENTATIVE Name:</td>
+                            <td colspan="3">{{$alldata_lead->acc_repersantive_name}} </td>
+                         
+                          </tr>
+
+                          <tr>
+                                <td>OFFICE PHONE
+                                        (A/C, No, Ext):</td>
+                                <td colspan="3">{{$alldata_lead->acc_agency_office_name}} </td>                             
+                              </tr>
+
+                              <tr>
+                                    <td>MOBILE
+                                            PHONE:</td>
+                                    <td colspan="3">{{$alldata_lead->acc_agency_mobile_name}} </td>                             
+                                  </tr>
+
+                                  <tr>
+                                    <td>FAX
+                                        (A/C, No):</td>
+                                        <td colspan="3">{{$alldata_lead->acc_agency_fax_no}} </td>                             
+                                      </tr>
+
+                                      <tr>
+                                      <td>E-Mail Address</td>
+                                    <td colspan="3">{{$alldata_lead->acc_agency_email}} </td>                             
+                                 </tr>
+
+                                 <tr>
+                                        <td>CODE:</td>
+                                      <td>{{$alldata_lead->acc_agency_code}}</td>  
+                                      <td>SUB CODE:</td>
+                                      <td>{{$alldata_lead->acc_agency_sub_code}}</td>                            
+                                   </tr>
+                                   
+                   </tbody>
+            </table>
+      </div>
+
+ <div class="col-sm-6 col-md-6">
+            <table class="table table-bordered table-responsive">
+                    <tbody>
+                      <tr>
+                        <td>COMPANY:</td>
+                        <td colspan="4">{{$alldata_lead->acc_company}}</td>
+                       
+                      </tr>
+
+                      <tr>
+                        <td>UNDERWRITER:</td>
+                        <td colspan="4">{{$alldata_lead->acc_underwriter}}</td>                     
+                      </tr>
+                      <tr>
+                            <td>APPLICANT NAME:</td>
+                            <td colspan="4">{{$alldata_lead->acc_applicant_name}}</td>                             
+                          </tr>
+
+                                <tr>
+                                <td>OFFICE PHONE:</td>
+                                <td>{{$alldata_lead->acc_office_phone}}</td>  
+                                <td colspan="2">MOBILE PHONE:</td>
+                                <td>{{$alldata_lead->acc_mobile_phone}}</td>                            
+                              </tr>
+
+                              <tr>
+                                <td rowspan="4" colspan="2">MAILING ADDRESS (including ZIP + 4 or Canadian Postal Code): {{$alldata_lead->acc_agency_sub_code}}</td>                           
+                                    <td colspan="3">YRS IN BUS: {{$alldata_lead->acc_yrs_in_bus}}</td> 											
+                                </tr>
+
+                                  <tr>
+                                  <td>SIC:</td> 
+								<td colspan="2">{{$alldata_lead->acc_sic}}</td>								  
+                             </tr>
+
+                             <tr>
+                                <td>NAICS:</td> 
+								<td colspan="2"> {{$alldata_lead->acc_naics}}</td>								
+                               </tr>
+
+                               <tr>
+                                <td>Website Address</td>    
+								<td colspan="2">{{$alldata_lead->acc_web_adderss}}</td>									
+                               </tr>
+
+							   <tr>
+							   <td colspan="5">E-MAIL ADDRESS: {{$alldata_lead->acc_company_email_address}}</td>
+							   </tr>
+
+                               <tr>
+                               <td></td>
+                                <td></td>
+                                 <td></td>
+                                  <td></td>
+                                   <td></td>
+                               </tr>
+
+                               <tr>
+                               <td colspan="2">CREDIT BUREAU NAME:</td>
+                                <td>{{$alldata_lead->acc_company_credit_bureau_name}}</td>
+                                 <td>ID NUMBER:</td>
+                                   <td>{{$alldata_lead->acc_company_id_number}}</td>
+                              </tr>
+
+                               <tr>
+                                <td colspan="2">FEDERAL EMPLOYER ID NUMBER:  {{$alldata_lead->acc_fedral_no}}</td>  
+                                 <td>NCCI RISK ID NUMBER:   {{$alldata_lead->acc_ncci_risk_no}} </td> 
+                                  <td colspan="2">OTHER RATING BUREAU ID OR STATE
+                                        EMPLOYER REGISTRATION NUMBER  {{$alldata_lead->acc_other_bureau_id}}</td>                                                                
+                                </tr>
+                                <tr>
+                                <td colspan="2"></td>  
+                                 <td></td> 
+                                  <td colspan="2"></td>                                                                
+                                </tr>
+                      </tbody>
+                      </table>
+  </div>
+</div>
+
+
+<!---------- STATUS OF SUBMISSION --------->
+<div class="row">
+    <div class="col-md-4">
+        <div class="breadcrum">     
+             <h4>STATUS OF SUBMISSION</h4>  
+        </div>         
+    </div>
+    <div class="col-md-8">
+        <div class="breadcrum">     
+             <h4>BILLING / AUDIT INFORMATION</h4>  
+        </div>         
+    </div>
+</div>
+
+<div class="row">
+        <div class="col-sm-4 col-md-4">
+            <table class="table table-bordered table-responsive">
+                    <tbody>
+                      <tr>
+                        <td>QUOTE</td>
+                        <td>ISSUE POLICY</td>                      
+                      </tr>
+
+                      <tr>
+                        <td colspan="2">BOUND (Give date and/or attach copy)</td>                     
+                      </tr>
+
+                      <tr>
+                        <td colspan="2">ASSIGNED RISK (Attach ACORD 133)</td>                      
+                      </tr>
+                      
+                      </tbody>
+                  </table>
+              </div>
+        <div class="col-sm-8 col-md-8">
+            <table class="table table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th>BILLING PLAN</th>
+                        <th colspan="2">PAYMENT PLAN</th>
+                        <th colspan="2">AUDIT</th>
+                    </tr>
+             </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{$alldata_lead->acc_billing_plan}}</td>
+                        <td colspan="2">{{$alldata_lead->acc_payment_plan}}</td>  
+                         <td>AT {{$alldata_lead->acc_audit}}</td>  
+                      </tr>
+
+                      
+                      
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+
+<!---------- LOCATIONS --------->
+<!--
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <div class="breadcrum">     
+             <h4>LOCATIONS</h4>  
+        </div>         
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <table class="table table-bordered table-responsive">
+                    <thead>
+                      <tr>
+                        <th>LOC #</th>
+                        <th>HIGHEST FLOOR</th>
+                        <th>STREET, CITY, COUNTY, STATE, ZIP CODE</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>                                         
+                      </tr>
+                      <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>                                                     
+                      </tr>
+                      <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>                                                    
+                      </tr>
+                    </tbody>
+                  </table>
+    </div>
+    <div class="clearfix"></div>
+</div>
+-->
+<!---------- POLICY INFORMATION --------->
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <div class="breadcrum">     
+             <h4>POLICY INFORMATION</h4>  
+        </div>         
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <table class="table table-bordered table-responsive">
+                    <thead>
+                      <tr>
+                        <th>PROPOSED EFF DATE</th>
+                        <th>PROPOSED EXP DATE</th>
+                        <th> NORMAL ANNIVERSARY RATING DATE</th>
+                         <th> PARTICIPATING</th>
+                          <th colspan="4">RETRO PLAN</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{$alldata_lead->acc_PROPOSED_eff_date}}</td>
+                        <td>{{$alldata_lead->acc_PROPOSED_exp_date}}</td>
+                        <td>{{$alldata_lead->acc_annivertsary_date}}</td>
+                        <td>{{$alldata_lead->acc_PARTICIPATING}}</td>
+                        <td colspan="4">{{$alldata_lead->acc_retro_plan}}</td>                                         
+                      </tr>
+                    </tbody>
+                    <thead>
+                      <tr>
+                        <th rowspan="3">PART 1 - WORKERS COMPENSATION (States)</th>
+                        <th colspan="2">PART 2 - EMPLOYER'S LIABILITY</th>
+                        <th> PART 3 - OTHER STATES INS</th>
+                         <th>DEDUCTIBLES (N/A in WI) </th>
+                          <th>AMOUNT / % (N/A in WI)</th>
+                          <th colspan="2">OTHER COVERAGES</th>                        
+                      </tr>
+                    </thead>
+                     <tbody>
+                      <tr>
+                        <td>{{$alldata_lead->acc_WORKERSCOMPENSATION_state}}</td>
+                        <td>${{$alldata_lead->acc_par2_liblaty_each_accident}}</td>
+                         <td>EACH ACCIDENT</td> 
+                         <td>{{$alldata_lead->acc_OTHERSTATES_ins}}</td> 
+                         <td>{{$alldata_lead->acc_DEDUCTIBLES_wi}}</td> 
+                         <td>{{$alldata_lead->acc_AMOUNT_na_wi}}</td> 
+                         <td>{{$alldata_lead->acc_other_coverage}}</td> 
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>${{$alldata_lead->acc_par2_liblaty_diseases_pol}}</td>
+                         <td>DISEASE-POLICY LIMIT</td> 
+                         <td></td> 
+                         <td></td> 
+                         <td></td> 
+                         <td></td>                                     
+                      </tr>
+                       <tr>
+                        <td></td>
+                        <td>${{$alldata_lead->acc_par2_liblaty_diseses_each_emp}}</td>
+                         <td>DISEASE-EACH EMPLOYEE</td> 
+                         <td></td> 
+                         <td></td> 
+                         <td></td> 
+                         <td></td>                                     
+                      </tr>
+                    </tbody>
+                    <thead>
+                      <tr>
+                        <th colspan="2">DIVIDEND PLAN/SAFETY GROUP</th>
+                        <th colspan="6">ADDITIONAL COMPANY INFORMATION</th>                     
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td colspan="2">{{$alldata_lead->acc_DIVIDEND_safty_group}}</td>
+                        <td colspan="6">{{$alldata_lead->acc__additional_company_issuie}}</td>                                     
+                      </tr>
+                  </tbody>
+                  <thead>
+                      <tr>
+                        <th colspan="8">SPECIFY ADDITIONAL COVERAGES / ENDORSEMENTS (Attach ACORD 101, Additional Remarks Schedule, if more space is required)</th>                                           
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td colspan="8">{{$alldata_lead->acc__specify_additional_coverage}}</td>                                   
+                      </tr>
+                  </tbody>
+                  </table>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<!---------- TOTAL ESTIMATED ANNUAL PREMIUM - ALL STATES --------->
+<div class="row">
+    <div class="col-md-12">
+        <div class="breadcrum">     
+             <h4>TOTAL ESTIMATED ANNUAL PREMIUM - ALL STATES</h4>  
+        </div>         
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <table class="table table-bordered table-responsive">
+                    <thead>
+                      <tr>
+                        <th>TOTAL ESTIMATED ANNUAL PREMIUM ALL STATES</th>
+                        <th>TOTAL MINIMUM PREMIUM ALL STATES</th>
+                        <th>TOTAL DEPOSIT PREMIUM ALL STATES</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>${{$alldata_lead->acc_total_estimate_annual}}</td>
+                        <td>${{$alldata_lead->acc_total_minimum_premium}}</td>
+                        <td>${{$alldata_lead->acc_total_deposite_premium}}</td>                                        
+                      </tr>
+                    </tbody>
+                  </table>
+    </div> 
+    <div class="clearfix"></div>
+</div>
+
+<!---------- CONTACT INFORMATION--------->
+<div class="row">
+    <div class="col-md-12">
+        <div class="breadcrum">     
+             <h4>CONTACT INFORMATION</h4>  
+        </div>         
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <table class="table table-bordered table-responsive">
+                    <thead>
+                      <tr>
+                        <th>TYPE</th>
+                        <th>NAME</th>
+                        <th>OFFICE PHONE</th>
+                        <th>MOBILE PHONE</th>
+                        <th>E-MAIL</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>INSPECTION</td>
+                        <td>{{$alldata_lead->contact_info_name1}}</td>
+                        <td>{{$alldata_lead->contact_info_office_phone1}}</td> 
+                        <td>{{$alldata_lead->contact_info_mobile_1}}</td>
+                        <td>{{$alldata_lead->contact_info_email_1}}</td>                                        
+                      </tr>
+                      <tr>
+                        <td>ACCTNG</td>
+                        <td>{{$alldata_lead->contact_info_name2}}</td>
+                        <td>{{$alldata_lead->contact_info_office_phone2}}</td> 
+                        <td>{{$alldata_lead->contact_info_mobile_2}}</td>
+                        <td>{{$alldata_lead->contact_info_email_2}}</td>                                        
+                      </tr>
+					  
+					   <tr>
+                        <td> RECORD</td>
+                        <td>{{$alldata_lead->contact_info_name3}}</td>
+                        <td>{{$alldata_lead->contact_info_office_phone3}}</td> 
+                        <td>{{$alldata_lead->contact_info_mobile_3}}</td>
+                        <td>{{$alldata_lead->contact_info_email_3}}</td>                                        
+                      </tr>
+					  
+                      <tr>
+                        <td>CLAIMS</td>
+                        <td>{{$alldata_lead->contact_info_name4}}</td>
+                        <td>{{$alldata_lead->contact_info_office_phone4}}</td> 
+                        <td>{{$alldata_lead->contact_info_mobile_4}}</td>
+                        <td>{{$alldata_lead->contact_info_email_4}}</td>                                        
+                      </tr>
+					  
+					  <tr>
+                        <td>INFO</td>
+                        <td>{{$alldata_lead->contact_info_name5}}</td>
+                        <td>{{$alldata_lead->contact_info_office_phone5}}</td> 
+                        <td>{{$alldata_lead->contact_info_mobile_5}}</td>
+                        <td>{{$alldata_lead->contact_info_email_5}}</td>                                        
+                      </tr>
+                    </tbody>
+                  </table>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<!---------- INDIVIDUALS INCLUDED / EXCLUDED--------->
+<div class="row">
+    <div class="col-md-12">
+        <div class="breadcrum">     
+             <h4>INDIVIDUALS INCLUDED / EXCLUDED</h4>  
+        </div>         
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <table class="table table-bordered table-responsive">
+                    <thead>
+                      <tr>
+                        <th colspan="10">PARTNERS, OFFICERS, RELATIVES ( Must be employed by business operations) TO BE INCLUDED OR EXCLUDED (Remuneration/Payroll to be included must be part of rating information section.)
+Exclusions in Missouri must meet the requirements of Section 287.090 RSMo. </th>                       
+                      </tr>
+                    </thead>
+                     <thead>
+                      <tr>
+                        <th>STATE</th>
+                        <th>LOC #</th>
+                        <th>NAME</th>
+                        <th>DATE OF BIRTH</th>
+                        <th>TITLE/ RELATIONSHIP</th>
+                        <th>OWNER- STATE LOC # SHIP %</th>
+                        <th>DUTIES</th>
+                        <th>INC/EXC</th>
+                        <th>CLASS CODE</th>
+                        <th>REMUNERATION/PAYROLL</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_state1}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_loc1}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_name1}}</td> 
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_dob1}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_title1}}</td> 
+                         <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_ownership1}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_duty1}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_inc1}}</td> 
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_class1}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_payrol1}}</td>                                          
+                      </tr>
+                      <tr>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_state2}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_loc2}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_name2}}</td> 
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_dob2}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_title2}}</td> 
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_ownership2}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_duty2}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_inc2}}</td> 
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_class2}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_payrol2}}</td>                                          
+                      </tr>
+                      <tr>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_state3}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_loc3}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_name3}}</td> 
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_dob3}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_title3}}</td> 
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_ownership3}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_duty3}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_inc3}}</td> 
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_class3}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_payrol3}}</td>                                           
+                      </tr>
+                      <tr>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_state4}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_loc4}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_name4}}</td> 
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_dob4}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_title4}}</td> 
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_ownership4}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_duty4}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_inc4}}</td> 
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_class4}}</td>
+                        <td>{{$alldata_lead->INDIVIDUALS_INCLUDED_payrol4}}</td>                                          
+                      </tr>
+                    </tbody>
+                  </table>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<!---------- STATE RATING WORKSHEET--------->
+<div class="row">
+    <div class="col-md-12">
+        <div class="breadcrum">     
+		<!--
+		   <h4 style="text-align: center;">STATE RATING WORKSHEET</h4>
+			
+			<div class="col-sm-12 col-md-12">
+            <table class="table table-bordered table-responsive">
+                    <thead>
+                      <tr>
+                        <th>STATE RATING SHEET</th>
+                        <th>SHEETS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{$alldata_lead->acc_STATERATINGSHEET}}</td> 
+                        <td>{{$alldata_lead->acc_SHEETS}}</td>
+                      </tr>
+                   
+                    </tbody>
+                  </table>
+            </div>
+			-->
+	
+                   <h4>RATING INFORMATION - STATE:</h4> 
+        </div>         
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <table class="table table-bordered table-responsive">
+                     <thead>
+                      <tr>
+                        <th>LOC #</th>
+                        <th>CLASS CODE</th>
+                        <th>DESCR CODE</th>
+                        <th>CATEGORIES, DUTIES, CLASSIFICATIONS</th>
+                        <th># Full EMPLOYEES</th>
+                        <th># Part EMPLOYEES</th>
+                        <th>SIC</th>
+                        <th>NAICS</th>
+                        <th>ESTIMATED ANNUAL REMUNERATION/ PAYROLL</th>
+                        <th>RATE</th>
+                        <th>ESTIMATED ANNUAL MANUAL PREMIUM</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{$alldata_lead->RATING_LOC_no1}}</td>
+                        <td>{{$alldata_lead->RATING_class_code1}}</td>
+                        <td>{{$alldata_lead->RATING_DESCR_code1}}</td> 
+                        <td>{{$alldata_lead->RATING_CATEGORIES1}}</td>
+                        <td>{{$alldata_lead->RATING_fullemp1}}</td> 
+                        <td>{{$alldata_lead->RATING_partemp1}}</td> 
+                        <td>{{$alldata_lead->RATING_sic1}}</td>
+                        <td>{{$alldata_lead->RATING_NAICS1}}</td>
+                        <td>{{$alldata_lead->RATING_PAYROLL1}}</td> 
+                        <td>{{$alldata_lead->RATING_RATE1}}</td>
+                        <td>{{$alldata_lead->RATING_PREMIUM1}}</td>                                          
+                      </tr>
+                      <tr>
+                       <td>{{$alldata_lead->RATING_LOC_no2}}</td>
+                        <td>{{$alldata_lead->RATING_class_code2}}</td>
+                        <td>{{$alldata_lead->RATING_DESCR_code2}}</td> 
+                        <td>{{$alldata_lead->RATING_CATEGORIES2}}</td>
+                        <td>{{$alldata_lead->RATING_fullemp2}}</td> 
+                        <td>{{$alldata_lead->RATING_partemp2}}</td> 
+                        <td>{{$alldata_lead->RATING_sic2}}</td>
+                        <td>{{$alldata_lead->RATING_NAICS2}}</td>
+                        <td>{{$alldata_lead->RATING_PAYROLL2}}</td> 
+                        <td>{{$alldata_lead->RATING_RATE2}}</td>
+                        <td>{{$alldata_lead->RATING_PREMIUM2}}</td>                                           
+                      </tr>
+                      <tr>
+                        <td>{{$alldata_lead->RATING_LOC_no3}}</td>
+                        <td>{{$alldata_lead->RATING_class_code3}}</td>
+                        <td>{{$alldata_lead->RATING_DESCR_code3}}</td> 
+                        <td>{{$alldata_lead->RATING_CATEGORIES3}}</td>
+                        <td>{{$alldata_lead->RATING_fullemp3}}</td> 
+                        <td>{{$alldata_lead->RATING_partemp3}}</td> 
+                        <td>{{$alldata_lead->RATING_sic3}}</td>
+                        <td>{{$alldata_lead->RATING_NAICS3}}</td>
+                        <td>{{$alldata_lead->RATING_PAYROLL3}}</td> 
+                        <td>{{$alldata_lead->RATING_RATE3}}</td>
+                        <td>{{$alldata_lead->RATING_PREMIUM3}}</td>                                             
+                      </tr>
+                      <tr>
+                        <td>{{$alldata_lead->RATING_LOC_no4}}</td>
+                        <td>{{$alldata_lead->RATING_class_code4}}</td>
+                        <td>{{$alldata_lead->RATING_DESCR_code4}}</td> 
+                        <td>{{$alldata_lead->RATING_CATEGORIES4}}</td>
+                        <td>{{$alldata_lead->RATING_fullemp4}}</td> 
+                        <td>{{$alldata_lead->RATING_partemp4}}</td> 
+                        <td>{{$alldata_lead->RATING_sic4}}</td>
+                        <td>{{$alldata_lead->RATING_NAICS4}}</td>
+                        <td>{{$alldata_lead->RATING_PAYROLL4}}</td> 
+                        <td>{{$alldata_lead->RATING_RATE4}}</td>
+                        <td>{{$alldata_lead->RATING_PREMIUM4}}</td>                                           
+                      </tr>
+                      <tr>
+                       <td>{{$alldata_lead->RATING_LOC_no5}}</td>
+                        <td>{{$alldata_lead->RATING_class_code5}}</td>
+                        <td>{{$alldata_lead->RATING_DESCR_code5}}</td> 
+                        <td>{{$alldata_lead->RATING_CATEGORIES5}}</td>
+                        <td>{{$alldata_lead->RATING_fullemp5}}</td> 
+                        <td>{{$alldata_lead->RATING_partemp5}}</td> 
+                        <td>{{$alldata_lead->RATING_sic5}}</td>
+                        <td>{{$alldata_lead->RATING_NAICS5}}</td>
+                        <td>{{$alldata_lead->RATING_PAYROLL5}}</td> 
+                        <td>{{$alldata_lead->RATING_RATE5}}</td>
+                        <td>{{$alldata_lead->RATING_PREMIUM5}}</td>                                             
+                      </tr>
+                      <tr>
+                        <td>{{$alldata_lead->RATING_LOC_no6}}</td>
+                        <td>{{$alldata_lead->RATING_class_code6}}</td>
+                        <td>{{$alldata_lead->RATING_DESCR_code6}}</td> 
+                        <td>{{$alldata_lead->RATING_CATEGORIES6}}</td>
+                        <td>{{$alldata_lead->RATING_fullemp6}}</td> 
+                        <td>{{$alldata_lead->RATING_partemp6}}</td> 
+                        <td>{{$alldata_lead->RATING_sic6}}</td>
+                        <td>{{$alldata_lead->RATING_NAICS6}}</td>
+                        <td>{{$alldata_lead->RATING_PAYROLL6}}</td> 
+                        <td>{{$alldata_lead->RATING_RATE6}}</td>
+                        <td>{{$alldata_lead->RATING_PREMIUM6}}</td>                                            
+                      </tr>
+                      <tr>
+                        <td>{{$alldata_lead->RATING_LOC_no7}}</td>
+                        <td>{{$alldata_lead->RATING_class_code7}}</td>
+                        <td>{{$alldata_lead->RATING_DESCR_code7}}</td> 
+                        <td>{{$alldata_lead->RATING_CATEGORIES7}}</td>
+                        <td>{{$alldata_lead->RATING_fullemp7}}</td> 
+                        <td>{{$alldata_lead->RATING_partemp7}}</td> 
+                        <td>{{$alldata_lead->RATING_sic7}}</td>
+                        <td>{{$alldata_lead->RATING_NAICS7}}</td>
+                        <td>{{$alldata_lead->RATING_PAYROLL7}}</td> 
+                        <td>{{$alldata_lead->RATING_RATE7}}</td>
+                        <td>{{$alldata_lead->RATING_PREMIUM7}}</td>                                            
+                      </tr>
+                      <tr>
+                       <td>{{$alldata_lead->RATING_LOC_no8}}</td>
+                        <td>{{$alldata_lead->RATING_class_code8}}</td>
+                        <td>{{$alldata_lead->RATING_DESCR_code8}}</td> 
+                        <td>{{$alldata_lead->RATING_CATEGORIES8}}</td>
+                        <td>{{$alldata_lead->RATING_fullemp8}}</td> 
+                        <td>{{$alldata_lead->RATING_partemp8}}</td> 
+                        <td>{{$alldata_lead->RATING_sic8}}</td>
+                        <td>{{$alldata_lead->RATING_NAICS8}}</td>
+                        <td>{{$alldata_lead->RATING_PAYROLL8}}</td> 
+                        <td>{{$alldata_lead->RATING_RATE8}}</td>
+                        <td>{{$alldata_lead->RATING_PREMIUM8}}</td>                                           
+                      </tr>
+                      <tr>
+                        <td>{{$alldata_lead->RATING_LOC_no9}}</td>
+                        <td>{{$alldata_lead->RATING_class_code9}}</td>
+                        <td>{{$alldata_lead->RATING_DESCR_code9}}</td> 
+                        <td>{{$alldata_lead->RATING_CATEGORIES9}}</td>
+                        <td>{{$alldata_lead->RATING_fullemp9}}</td> 
+                        <td>{{$alldata_lead->RATING_partemp9}}</td> 
+                        <td>{{$alldata_lead->RATING_sic9}}</td>
+                        <td>{{$alldata_lead->RATING_NAICS9}}</td>
+                        <td>{{$alldata_lead->RATING_PAYROLL9}}</td> 
+                        <td>{{$alldata_lead->RATING_RATE9}}</td>
+                        <td>{{$alldata_lead->RATING_PREMIUM9}}</td>   
+                      </tr>
+                      <tr>
+                        <td>{{$alldata_lead->RATING_LOC_no10}}</td>
+                        <td>{{$alldata_lead->RATING_class_code10}}</td>
+                        <td>{{$alldata_lead->RATING_DESCR_code10}}</td> 
+                        <td>{{$alldata_lead->RATING_CATEGORIES10}}</td>
+                        <td>{{$alldata_lead->RATING_fullemp10}}</td> 
+                        <td>{{$alldata_lead->RATING_partemp10}}</td> 
+                        <td>{{$alldata_lead->RATING_sic10}}</td>
+                        <td>{{$alldata_lead->RATING_NAICS10}}</td>
+                        <td>{{$alldata_lead->RATING_PAYROLL10}}</td> 
+                        <td>{{$alldata_lead->RATING_RATE10}}</td>
+                        <td>{{$alldata_lead->RATING_PREMIUM10}}</td>                                          
+                      </tr>
+                      <tr>
+                        <td>{{$alldata_lead->RATING_LOC_no11}}</td>
+                        <td>{{$alldata_lead->RATING_class_code11}}</td>
+                        <td>{{$alldata_lead->RATING_DESCR_code11}}</td> 
+                        <td>{{$alldata_lead->RATING_CATEGORIES11}}</td>
+                        <td>{{$alldata_lead->RATING_fullemp11}}</td> 
+                        <td>{{$alldata_lead->RATING_partemp11}}</td> 
+                        <td>{{$alldata_lead->RATING_sic11}}</td>
+                        <td>{{$alldata_lead->RATING_NAICS11}}</td>
+                        <td>{{$alldata_lead->RATING_PAYROLL11}}</td> 
+                        <td>{{$alldata_lead->RATING_RATE11}}</td>
+                        <td>{{$alldata_lead->RATING_PREMIUM11}}</td>                                            
+                      </tr>
+                      <tr>
+                        <td>{{$alldata_lead->RATING_LOC_no12}}</td>
+                        <td>{{$alldata_lead->RATING_class_code12}}</td>
+                        <td>{{$alldata_lead->RATING_DESCR_code12}}</td> 
+                        <td>{{$alldata_lead->RATING_CATEGORIES12}}</td>
+                        <td>{{$alldata_lead->RATING_fullemp12}}</td> 
+                        <td>{{$alldata_lead->RATING_partemp12}}</td> 
+                        <td>{{$alldata_lead->RATING_sic12}}</td>
+                        <td>{{$alldata_lead->RATING_NAICS12}}</td>
+                        <td>{{$alldata_lead->RATING_PAYROLL12}}</td> 
+                        <td>{{$alldata_lead->RATING_RATE12}}</td>
+                        <td>{{$alldata_lead->RATING_PREMIUM12}}</td>                                            
+                      </tr>
+                      <tr>
+                        <td>{{$alldata_lead->RATING_LOC_no13}}</td>
+                        <td>{{$alldata_lead->RATING_class_code13}}</td>
+                        <td>{{$alldata_lead->RATING_DESCR_code13}}</td> 
+                        <td>{{$alldata_lead->RATING_CATEGORIES13}}</td>
+                        <td>{{$alldata_lead->RATING_fullemp13}}</td> 
+                        <td>{{$alldata_lead->RATING_partemp13}}</td> 
+                        <td>{{$alldata_lead->RATING_sic13}}</td>
+                        <td>{{$alldata_lead->RATING_NAICS13}}</td>
+                        <td>{{$alldata_lead->RATING_PAYROLL13}}</td> 
+                        <td>{{$alldata_lead->RATING_RATE13}}</td>
+                        <td>{{$alldata_lead->RATING_PREMIUM13}}</td>                                           
+                      </tr>
+                      <tr>
+                       <td>{{$alldata_lead->RATING_LOC_no14}}</td>
+                        <td>{{$alldata_lead->RATING_class_code14}}</td>
+                        <td>{{$alldata_lead->RATING_DESCR_code14}}</td> 
+                        <td>{{$alldata_lead->RATING_CATEGORIES14}}</td>
+                        <td>{{$alldata_lead->RATING_fullemp14}}</td> 
+                        <td>{{$alldata_lead->RATING_partemp14}}</td> 
+                        <td>{{$alldata_lead->RATING_sic14}}</td>
+                        <td>{{$alldata_lead->RATING_NAICS14}}</td>
+                        <td>{{$alldata_lead->RATING_PAYROLL14}}</td> 
+                        <td>{{$alldata_lead->RATING_RATE14}}</td>
+                        <td>{{$alldata_lead->RATING_PREMIUM14}}</td>                                          
+                      </tr>
+                    </tbody>
+                  </table>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+
+<!---------- PREMIUM --------->
+<div class="row">
+    <div class="col-md-12">
+        <div class="breadcrum">     
+            <h4>PREMIUM</h4>
+        </div>         
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <table class="table table-bordered table-responsive">
+                     <thead>
+                      <tr>
+                        <th>STATE:</th>
+                        <th>FACTOR</th>
+                        <th>FACTORED PREMIUM</th>
+                        <th></th>
+                        <th>FACTOR</th>
+                        <th>FACTORED PREMIUM</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>TOTAL</td> 
+                        <td>N / A</td>
+                        <td>${{$alldata_lead->PREMIUM_STATEFACTORED1}}</td>
+                        <td></td>
+                        <td>{{$alldata_lead->PREMIUM_FACTOR1}}</td> 
+                        <td>${{$alldata_lead->PREMIUM_FACTORED1}}</td> 
+                        </tr>
+                        <tr>
+                        <td>INCREASED LIMITS</td> 
+                        <td>${{$alldata_lead->PREMIUM_STATEFACTOR2}}</td>
+                        <td>${{$alldata_lead->PREMIUM_STATEFACTORED2}}</td>
+                        <td>SCHEDULE RATING *</td>
+                        <td>{{$alldata_lead->PREMIUM_FACTOR2}}</td> 
+                        <td>${{$alldata_lead->PREMIUM_FACTORED2}}</td> 
+                        </tr>
+                        <tr>
+                        <td>DEDUCTIBLE *</td> 
+                        <td>${{$alldata_lead->PREMIUM_STATEFACTOR3}}</td>
+                        <td>${{$alldata_lead->PREMIUM_STATEFACTORED3}}</td>
+                        <td>CCPAP</td>
+                        <td>{{$alldata_lead->PREMIUM_FACTOR3}}</td>
+                        <td>${{$alldata_lead->PREMIUM_FACTORED3}}</td>  
+                        </tr>
+                        <tr>
+                        <td></td> 
+                        <td>${{$alldata_lead->PREMIUM_STATEFACTOR4}}</td>
+                        <td>${{$alldata_lead->PREMIUM_STATEFACTORED4}}</td>
+                        <td>STANDARD PREMIUM</td>
+                        <td>{{$alldata_lead->PREMIUM_FACTOR4}}</td> 
+                        <td>${{$alldata_lead->PREMIUM_FACTORED4}}</td> 
+                        </tr>
+                        <tr>
+                        <td>EXPERIENCE OR MERIT</td> 
+                        <td>${{$alldata_lead->PREMIUM_STATEFACTOR5}}</td>
+                        <td>${{$alldata_lead->PREMIUM_STATEFACTORED5}}</td>
+                        <td>PREMIUM DISCOUNT</td>
+                        <td>{{$alldata_lead->PREMIUM_FACTOR5}}</td> 
+                        <td>${{$alldata_lead->PREMIUM_FACTORED5}}</td> 
+                        </tr>
+                        <tr>
+                        <td></td> 
+                        <td>${{$alldata_lead->PREMIUM_STATEFACTOR6}}</td>
+                        <td>${{$alldata_lead->PREMIUM_STATEFACTORED6}}</td>
+                        <td>EXPENSE CONSTANT</td>
+                        <td>N / A</td>
+                        <td>${{$alldata_lead->PREMIUM_FACTORED6}}</td>  
+                        </tr>
+                        <tr>
+                        <td>ASSIGNED RISK SURCHARGE *</td> 
+                        <td>${{$alldata_lead->PREMIUM_STATEFACTOR7}}</td>
+                        <td>${{$alldata_lead->PREMIUM_STATEFACTORED7}}</td>
+                        <td>TAXES / ASSESSMENTS *</td>
+                        <td>N / A</td>
+                        <td>${{$alldata_lead->PREMIUM_FACTORED7}}</td>  
+                        </tr>
+                        <tr>
+                        <td>ARAP *</td> 
+                        <td>${{$alldata_lead->PREMIUM_STATEFACTOR8}}</td>
+                        <td>${{$alldata_lead->PREMIUM_STATEFACTORED8}}</td>
+                        <td></td>
+                        <td>{{$alldata_lead->PREMIUM_FACTOR8}}</td>
+                        <td>${{$alldata_lead->PREMIUM_FACTORED8}}</td>  
+                        </tr>
+                         <tr>
+                        <td colspan="6">* N / A in Wisconsin</td>   
+                        </tr>
+                        </tbody>
+                        <thead>
+                      <tr>
+                        <th colspan="2">TOTAL ESTIMATED ANNUAL PREMIUM</th>
+                        <th colspan="2">MINIMUM PREMIUM</th>
+                        <th colspan="2">DEPOSIT PREMIUM</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <td colspan="2">${{$alldata_lead->PREMIUM_total_ANNUAL_P}}</td>
+                        <td colspan="2">${{$alldata_lead->PREMIUM_MINIMUM_P}}</td>
+                        <td colspan="2">${{$alldata_lead->PREMIUM_DEPOSIT_P}}</td>                       
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+
+<!---------- REMARKS  --------->
+<div class="row">
+    <div class="col-md-12">
+        <div class="breadcrum">     
+            <h4>REMARKS (ACORD 101, Additional Remarks Schedule, may be attached if more space is required)</h4>
+        </div>         
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <table class="table table-bordered table-responsive">
+                <tbody>
+                    <tr>
+                    <td>{{$alldata_lead->acc_remarks}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<!---------- PRIOR CARRIER INFORMATION / LOSS HISTORY  --------->
+<div class="row">
+    <div class="col-md-6">
+        <div class="breadcrum">     
+            <h4>PRIOR CARRIER INFORMATION / LOSS HISTORY</h4>
+        </div>         
+    </div>
+    <div class="col-md-6">
+        <div class="breadcrum">     
+            <h4>AGENCY CUSTOMER ID:</h4>
+        </div>         
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <table class="table table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th colspan="3">PROVIDE INFORMATION FOR THE PAST 5 YEARS AND USE THE REMARKS SECTION FOR LOSS DETAILS</th>
+                         <th colspan="5">LOSS RUN ATTACHED</th>
+                      </tr>
+                      <tr>
+                        <th>YEAR</th>
+                        <th>CARRIER & POLICY NUMBER</th>
+                        <th>ANNUAL PREMIUM</th>
+                        <th>MOD</th>
+                        <th># CLAIMS</th>
+                        <th>AMOUNT PAID</th>
+                        <th>RESERVE</th>
+                      </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{$alldata_lead->PRIOR_YEAR1_}}</td>
+                    <td>{{$alldata_lead->PRIOR_CARRIERNo1}}</td>
+                    <td>{{$alldata_lead->PRIOR_ANNUALPREMIUM1}}</td>
+                    <td>{{$alldata_lead->PRIOR_MOD1}}</td>
+                    <td>{{$alldata_lead->PRIOR_CLAIMS1}}</td>
+                    <td>{{$alldata_lead->PRIOR_AMOUNTPAID1}}</td>
+                    <td >{{$alldata_lead->PRIOR_RESERVE1}}</td>
+                </tr>
+                <tr>
+                    <td>{{$alldata_lead->PRIOR_YEAR2_}}</td>
+                    <td>{{$alldata_lead->PRIOR_CARRIERNo2}}</td>
+                    <td>{{$alldata_lead->PRIOR_ANNUALPREMIUM2}}</td>
+                    <td>{{$alldata_lead->PRIOR_MOD2}}</td>
+                    <td>{{$alldata_lead->PRIOR_CLAIMS2}}</td>
+                    <td>{{$alldata_lead->PRIOR_AMOUNTPAID2}}</td>
+                    <td >{{$alldata_lead->PRIOR_RESERVE2}}</td>
+                </tr>
+				 <tr>  
+                   <td>{{ $alldata_lead->PRIOR_YEAR3_}}</td>
+                    <td>{{$alldata_lead->PRIOR_CARRIERNo3}}</td>
+                    <td>{{$alldata_lead->PRIOR_ANNUALPREMIUM3}}</td>
+                    <td>{{$alldata_lead->PRIOR_MOD3}}</td>
+                    <td>{{$alldata_lead->PRIOR_CLAIMS3}}</td>
+                    <td>{{$alldata_lead->PRIOR_AMOUNTPAID3}}</td>
+                    <td >{{$alldata_lead->PRIOR_RESERVE3}}</td>
+                </tr>
+				
+				 <tr>
+                   <td>{{$alldata_lead->PRIOR_YEAR4 }}</td>
+                    <td>{{$alldata_lead->PRIOR_CARRIERNo4}}</td>
+                    <td>{{$alldata_lead->PRIOR_ANNUALPREMIUM4}}</td>
+                    <td>{{$alldata_lead->PRIOR_MOD4}}</td>
+                    <td>{{$alldata_lead->PRIOR_CLAIMS4}}</td>
+                    <td>{{$alldata_lead->PRIOR_AMOUNTPAID4}}</td>
+                    <td >{{$alldata_lead->PRIOR_RESERVE4}}</td>
+                </tr>
+				
+				 <tr>
+                   <td>{{$alldata_lead->PRIOR_YEAR5}}</td>
+                    <td>{{$alldata_lead->PRIOR_CARRIERNo5}}</td>
+                    <td>{{$alldata_lead->PRIOR_ANNUALPREMIUM5}}</td>
+                    <td>{{$alldata_lead->PRIOR_MOD5}}</td>
+                    <td>{{$alldata_lead->PRIOR_CLAIMS5}}</td>
+                    <td>{{$alldata_lead->PRIOR_AMOUNTPAID5}}</td>
+                    <td >{{$alldata_lead->PRIOR_RESERVE5}}</td>
+                </tr>
+				 <tr>
+                   <td>{{$alldata_lead->PRIOR_YEAR6}}</td>
+                    <td>{{$alldata_lead->PRIOR_CARRIERNo6}}</td>
+                    <td>{{$alldata_lead->PRIOR_ANNUALPREMIUM6}}</td>
+                    <td>{{$alldata_lead->PRIOR_MOD6}}</td>
+                    <td>{{$alldata_lead->PRIOR_CLAIMS6}}</td>
+                    <td>{{$alldata_lead->PRIOR_AMOUNTPAID6}}</td>
+                    <td >{{$alldata_lead->PRIOR_RESERVE6}}</td>
+                </tr>
+				
+				 <tr>
+                   <td>{{$alldata_lead->PRIOR_YEAR7}}</td>
+                    <td>{{$alldata_lead->PRIOR_CARRIERNo7}}</td>
+                    <td>{{$alldata_lead->PRIOR_ANNUALPREMIUM7}}</td>
+                    <td>{{$alldata_lead->PRIOR_MOD7}}</td>
+                    <td>{{$alldata_lead->PRIOR_CLAIMS7}}</td>
+                    <td>{{$alldata_lead->PRIOR_AMOUNTPAID7}}</td>
+                    <td >{{$alldata_lead->PRIOR_RESERVE7}}</td>
+                </tr>
+				
+				 <tr>
+                   <td>{{$alldata_lead->PRIOR_YEAR8}}</td>
+                    <td>{{$alldata_lead->PRIOR_CARRIERNo8}}</td>
+                    <td>{{$alldata_lead->PRIOR_ANNUALPREMIUM8}}</td>
+                    <td>{{$alldata_lead->PRIOR_MOD8}}</td>
+                    <td>{{$alldata_lead->PRIOR_CLAIMS8}}</td>
+                    <td>{{$alldata_lead->PRIOR_AMOUNTPAID8}}</td>
+                    <td >{{$alldata_lead->PRIOR_RESERVE8}}</td>
+                </tr>
+				
+				 <tr>
+                   <td>{{$alldata_lead->PRIOR_YEAR9}}</td>
+                    <td>{{$alldata_lead->PRIOR_CARRIERNo9}}</td>
+                    <td>{{$alldata_lead->PRIOR_ANNUALPREMIUM9}}</td>
+                    <td>{{$alldata_lead->PRIOR_MOD9}}</td>
+                    <td>{{$alldata_lead->PRIOR_CLAIMS9}}</td>
+                    <td>{{$alldata_lead->PRIOR_AMOUNTPAID9}}</td>
+                    <td >{{$alldata_lead->PRIOR_RESERVE9}}</td>
+                </tr>
+				 <tr>
+                   <td>{{$alldata_lead->PRIOR_YEAR10}}</td>
+                    <td>{{$alldata_lead->PRIOR_CARRIERNo10}}</td>
+                    <td>{{$alldata_lead->PRIOR_ANNUALPREMIUM10}}</td>
+                    <td>{{$alldata_lead->PRIOR_MOD10}}</td>
+                    <td>{{$alldata_lead->PRIOR_CLAIMS10}}</td>
+                    <td>{{$alldata_lead->PRIOR_AMOUNTPAID10}}</td>
+                    <td >{{$alldata_lead->PRIOR_RESERVE10}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<!---------- NATURE OF BUSINESS / DESCRIPTION OF OPERATIONS  --------->
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <div class="breadcrum">     
+            <h4>NATURE OF BUSINESS / DESCRIPTION OF OPERATIONS</h4>
+        </div>         
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <table class="table table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th colspan="3">GIVE COMMENTS AND DESCRIPTIONS OF BUSINESS, OPERATIONS AND PRODUCTS: MANUFACTURING - RAW MATERIALS, PROCESSES, PRODUCT, EQUIPMENT; CONTRACTOR - TYPE OF WORK, SUB-CONTRACTS; MERCANTILE - MERCHANDISE, CUSTOMERS, DELIVERIES; SERVICE - TYPE, LOCATION; FARM - ACREAGE, ANIMALS, MACHINERY, SUB-CONTRACTS.
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{$alldata_lead->acc_nature_description}}</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+
+
+<!---------- GENERAL INFORMATION  --------->
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <div class="breadcrum">     
+            <h4>GENERAL INFORMATION</h4>
+        </div>         
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+            <table class="table table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th>EXPLAIN ALL "YES" RESPONSES</th>
+                        <th>Y / N</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. DOES APPLICANT OWN, OPERATE OR LEASE AIRCRAFT / WATERCRAFT?</td>
+                        <td rowspan="2">{{$alldata_lead->acc_watercraft_yes_no}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2. DO / HAVE PAST, PRESENT OR DISCONTINUED OPERATIONS INVOLVE(D) STORING, TREATING, DISCHARGING, APPLYING, DISPOSING, OR TRANSPORTING OF HAZARDOUS MATERIAL? (e.g. landfills, wastes, fuel tanks, etc)</td>
+                        <td rowspan="2">{{$alldata_lead->acc_DISCONTINUED_OPERATIONS}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3. ANY WORK PERFORMED UNDERGROUND OR ABOVE 15 FEET?</td>
+                        <td rowspan="2">{{$alldata_lead->acc_above_under15}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>4. ANY WORK PERFORMED ON BARGES, VESSELS, DOCKS, BRIDGE OVER WATER?</td>
+                        <td rowspan="2">{{$alldata_lead->acc_BRIDGE_over_water}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>5. IS APPLICANT ENGAGED IN ANY OTHER TYPE OF BUSINESS?</td>
+                        <td rowspan="2">{{$alldata_lead->acc_any_other_busness}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>6. ARE SUB-CONTRACTORS USED? (If "YES", give % of work subcontracted)</td>
+                        <td rowspan="2">{{$alldata_lead->acc_sub_contracted}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>7. ANY WORK SUBLET WITHOUT CERTIFICATES OF INSURANCE? (If "YES", payroll for this work must be included in the State Rating Worksheet on Page 2)</td>
+                        <td rowspan="2">{{$alldata_lead->acc_without_insurance}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>8. IS A WRITTEN SAFETY PROGRAM IN OPERATION?</td>
+                        <td rowspan="2">{{$alldata_lead->acc_writen_safty_program}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>9. ANY GROUP TRANSPORTATION PROVIDED?</td>
+                        <td rowspan="2">{{$alldata_lead->acc_group_transportation}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>10. ANY EMPLOYEES UNDER 16 OR OVER 60 YEARS OF AGE?</td>
+                        <td rowspan="2">{{$alldata_lead->acc_employees_under16}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>11. ANY SEASONAL EMPLOYEES?</td>
+                        <td rowspan="2">{{$alldata_lead->acc_seasonal_employee}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>12. IS THERE ANY VOLUNTEER OR DONATED LABOR? (If "YES", please specify)</td>
+                        <td rowspan="2">{{$alldata_lead->acc_volunteer_donated}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>13. ANY EMPLOYEES WITH PHYSICAL HANDICAPS?</td>
+                        <td rowspan="2">{{$alldata_lead->acc_employees_handicaped}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>14. DO EMPLOYEES TRAVEL OUT OF STATE? (If "YES", indicate state(s) of travel and frequency)</td>
+                        <td rowspan="2">{{$alldata_lead->acc_employees_travel_out_state}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>15. ARE ATHLETIC TEAMS SPONSORED?</td>
+                        <td rowspan="2">{{$alldata_lead->acc_atheletic_team}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>16. ARE PHYSICALS REQUIRED AFTER OFFERS OF EMPLOYMENT ARE MADE?</td>
+                        <td rowspan="2">{{$alldata_lead->acc_physical_required}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>17. ANY OTHER INSURANCE WITH THIS INSURER?</td>
+                        <td rowspan="2">{{$alldata_lead->acc_other_insurance}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>18. ANY PRIOR COVERAGE DECLINED / CANCELLED / NON-RENEWED IN THE LAST THREE (3) YEARS? (Missouri Applicants - Do not answer this question)</td>
+                        <td rowspan="2">{{$alldata_lead->acc_prior_coverage}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>19. ARE EMPLOYEE HEALTH PLANS PROVIDED?</td>
+                        <td rowspan="2">{{$alldata_lead->acc_employees_health_plan}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>20. DO ANY EMPLOYEES PERFORM WORK FOR OTHER BUSINESSES OR SUBSIDIARIES?</td>
+                        <td rowspan="2">{{$alldata_lead->acc_employees_buisness_subdieries}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>21. DO YOU LEASE EMPLOYEES TO OR FROM OTHER EMPLOYERS?</td>
+                        <td rowspan="2">{{$alldata_lead->acc_employees_lease}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>22. DO ANY EMPLOYEES PREDOMINANTLY WORK AT HOME? If "YES", # of Employees:</td>
+                        <td rowspan="2">{{$alldata_lead->acc_employees_PREDOMINANTLY_work}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>23. ANY TAX LIENS OR BANKRUPTCY WITHIN THE LAST FIVE (5) YEARS? (If "YES", please specify)</td>
+                        <td rowspan="2">{{$alldata_lead->acc_tax_liens_5hours}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>24. ANY UNDISPUTED AND UNPAID WORKERS COMPENSATION PREMIUM DUE FROM YOU OR ANY COMMONLY MANAGED OR OWNED ENTERPRISES?
+IF YES, EXPLAIN INCLUDING ENTITY NAME(S) AND POLICY NUMBER(S).</td>
+                        <td rowspan="2">{{$alldata_lead->acc_UNDISPUTED_unpaid_work}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+<!------------ End --------------------->
+		
+
+				<div class="form-group">
+				<button class="btn btn-block btn-primary" type="submit" onclick="window.history.go(-1); return false;"><i class="si si-login pull-right"></i> Back</button>
+			</div> 
+		
+	</div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <!-- END Block Tabs Alternative Style -->
+                        </div>
+                        
+                    </div>
+                </div>
+                <!-- END Page Content -->
+@endsection
